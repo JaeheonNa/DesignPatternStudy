@@ -15,6 +15,7 @@ public class InterpreterRunner {
      */
 
     public static void run(){
+
         PostFixParser parser = new PostFixParser();
         PostFixExpression expression = parser.parse("xyz+-a+");
 
