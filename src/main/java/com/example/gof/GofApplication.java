@@ -12,6 +12,7 @@ import com.example.gof.facade.FacadeRunner;
 import com.example.gof.factoryMethod.FactoryMethodRunner;
 import com.example.gof.flyweight.FlyweightRunner;
 import com.example.gof.interpreter.InterpreterRunner;
+import com.example.gof.iterator.IteratorRunner;
 import com.example.gof.prototype.PrototypeRunner;
 import com.example.gof.proxy.ProxyRunner;
 import com.example.gof.singleton.SingletonRunner;
@@ -202,6 +203,13 @@ public class GofApplication {
 
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<인터프리터>>>>>>>>>>>>>>>>>>>>>>>");
         InterpreterRunner.run();
+
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<이터레이터>>>>>>>>>>>>>>>>>>>>>>>");
+        IteratorRunner.run();
+        /*
+        Iterator, Enumeration
+        --> java.
+         */
     }
 
 }
