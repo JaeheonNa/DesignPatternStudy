@@ -5,15 +5,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CleaningService {
-    @Autowired
-    private FrontDesk frontDesk;
 
-    public void getTowel(int guestId, int numberOfTowel){
-        String room = this.frontDesk.getRoomNumberFor(guestId);
+    public void getTowel(int guestId, int numberOfTowel, FrontDesk frontDesk){
+        String room = frontDesk.getRoomNumberFor(guestId);
         System.out.println("provide " + numberOfTowel + " towel(s) to " + room);
     }
 
-    public void clean(Restaurante restaurante){
+    public void clean(Restaurante restaurante, FrontDesk frontDesk){
         System.out.println("clean" + restaurante);
     }
 

@@ -14,18 +14,16 @@ import com.example.gof.flyweight.FlyweightRunner;
 import com.example.gof.interpreter.InterpreterRunner;
 import com.example.gof.iterator.IteratorRunner;
 import com.example.gof.mediator.MediatorRunner;
+import com.example.gof.memento.MementoRunner;
+import com.example.gof.observer.ObserverRunner;
 import com.example.gof.prototype.PrototypeRunner;
 import com.example.gof.proxy.ProxyRunner;
 import com.example.gof.singleton.SingletonRunner;
-import org.modelmapper.ModelMapper;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
+import com.example.gof.state.StateRunner;
 
-import javax.decorator.Decorator;
 import java.io.*;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
 
 public class GofApplication {
 
@@ -208,12 +206,53 @@ public class GofApplication {
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<이터레이터>>>>>>>>>>>>>>>>>>>>>>>");
         IteratorRunner.run();
         /*
+        <이터레이터 example>
         Iterator, Enumeration
         --> java.
          */
 
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<중재자>>>>>>>>>>>>>>>>>>>>>>>");
         MediatorRunner.run();
+        /*
+        <중재자 example>
+        ExecutorService, Executore
+        --> java.
+        DispatcherServlet
+        --> Spring(MVC)
+         */
+
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<메멘토>>>>>>>>>>>>>>>>>>>>>>>");
+        MementoRunner.run();
+        /*
+        <메멘토 example>
+        직렬화-역질렬화
+        try(FileOutputStream fos = new FileOutputStream("GameSave.hex");
+            ObjectOutputStream oos = new ObjectOutputStream(fos)){
+            oos.writeObject(game);
+        }
+        try(FileInputStream fis = new FileInputStream("GameSave.hex");
+            ObjectInputStream ois = new ObjectInputStream(fis)){
+            game = (Game) ois.readObject();
+        }
+        --> java
+         */
+
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<옵저버>>>>>>>>>>>>>>>>>>>>>>>");
+        ObserverRunner.run();
+        /*
+        <옵저버 example>
+        Observer 인터페이스, Observable 클래스. 현재 권장되지 않음.
+        대신 1. PropertyChangeListener, PropertyChangeEvent, PropertyChangeSupport 사용.
+            2. Flow API(Flow.Publisher, Flow.Subscriber, Flow.Subscription) 사용 추천.
+        --> java.
+        ApplicationContext(IoCContainer) --> 사실상 event publisher임. ApplicationEventPublisher를 구현하고 있기 때문.
+        @EventListener
+        --> spring
+         */
+
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<상태>>>>>>>>>>>>>>>>>>>>>>>");
+        StateRunner.run();
+
     }
 
 }

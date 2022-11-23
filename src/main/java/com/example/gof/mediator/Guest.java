@@ -12,8 +12,7 @@ public class Guest {
 
 
     private int id;
-    @Autowired
-    private FrontDesk frontDesk;
+    private FrontDesk frontDesk = new FrontDesk();
 
     public void getTowel(int numberOfTowel){
         this.frontDesk.getTowel(this, numberOfTowel);
