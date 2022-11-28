@@ -20,6 +20,13 @@ import com.example.gof.prototype.PrototypeRunner;
 import com.example.gof.proxy.ProxyRunner;
 import com.example.gof.singleton.SingletonRunner;
 import com.example.gof.state.StateRunner;
+import com.example.gof.strategy.StrategyRunner;
+import com.example.gof.templateMethod.TemplateMethodRunner;
+import com.example.gof.visitor.VisitorRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import java.io.*;
 
@@ -253,7 +260,37 @@ public class GofApplication {
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<상태>>>>>>>>>>>>>>>>>>>>>>>");
         StateRunner.run();
 
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<전략>>>>>>>>>>>>>>>>>>>>>>>");
+        StrategyRunner.run();
 
+        /*
+        <전략 example>
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(5);
+        Collection.sort(numbers, Comparator.reverseOrder());
+        Collection.sort(numbers, Comparator.naturalOrder());
+        --> java.
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext();
+            Class Path로 XML 파일을 찾아 빈 설정 파일로 사용하는 ApplicationContext
+        ApplicationContext applicationContext1 = new FileSystemXmlApplicationContext();
+            File System 경로 기준으로 XML 파일을 찾아 빈 설정 파일로 사용하는 ApplicationContext
+        ApplicationContext applicationContext2 = new AnnotationConfigApplicationContext();
+            Annotation 설정 파일로 빈 설정을 찾는 ApplicationContext
+        --> Spring
+         */
+
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<템플릿 메소드>>>>>>>>>>>>>>>>>>>>>>>");
+        TemplateMethodRunner.run();
+        /*
+        <템플릿메소드 example>
+        jdbcTemplate.execute();
+        jdbcTemplate.query();
+        --> java.
+         */
+
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<비지터>>>>>>>>>>>>>>>>>>>>>>>");
+        VisitorRunner.run();
     }
 
 }
