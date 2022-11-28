@@ -253,6 +253,7 @@ public class GofApplication {
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<상태>>>>>>>>>>>>>>>>>>>>>>>");
         StateRunner.run();
 
+
     }
 
 }
